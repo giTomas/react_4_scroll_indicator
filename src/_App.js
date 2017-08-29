@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import throttle from 'lodash.throttle';
-// import actionCreators from './redux/actionCreators';
+import actionCreators from './redux/actionCreators';
 import Page from './styled/page';
 
 class App extends PureComponent {
@@ -15,8 +15,6 @@ class App extends PureComponent {
       showElement: true,
       progress: 0,
     }
-
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
