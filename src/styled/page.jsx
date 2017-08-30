@@ -6,8 +6,10 @@ const Wrapper = styled.div`
   background-image: repeating-linear-gradient(#11e5f3, #11e5f3 2em, #ccf9fc 2em, #ccf9fc 4em);
 `;
 
-const Container = styled.div`
-  --color: #f31174;
+const Container = styled.div.attrs({
+  color: props => props.full ? '#fa93c0' : '#f31174',
+})`
+  --color: ${props => props.color};
   position: fixed;
   top: 50%;
   left: 50%;
@@ -39,7 +41,7 @@ const ScrollIndicatorDescription = styled.h2`
 
 const Page = ({progress, parentRef}) => (
   <Wrapper innerRef={parentRef}>
-    <Container>
+    <Container full={progress === 100}>
       <ScrollIndicatorDescription>Scroll progress: {progress}%</ScrollIndicatorDescription>
       <ScrollIndicator progress={progress}/>
     </Container>

@@ -15,11 +15,10 @@ class App extends PureComponent {
   }
 
   handleScroll = () => {
-    const scrollY = parseInt(window.pageYOffset);
+    const scrollY = parseInt(window.pageYOffset, 0);
     const height = this.refElem.offsetHeight
     const wHeight = window.innerHeight
     const progress = Math.ceil(scrollY / ((height-wHeight)/100))
-    // this.setState({progress});
     this.props.updateProgress(progress);
   }
 
